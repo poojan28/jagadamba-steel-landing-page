@@ -1,0 +1,452 @@
+
+ <!doctype html><html><head><meta charset="utf-8"> <script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /><title></title><link rel="shortcut icon" href=""  type="image/x-icon"><!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><link href="" type="text/css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" type="text/css" rel="stylesheet"><!--[if lt IE 9]><link href="https://old.assets-landingi.com/bootstrap/css/ie8-grid.css?v=8.9.8" type="text/css" rel="stylesheet"><link href="https://styles.assets-landingi.com/dLvaA9T8/base_ie8.css" type="text/css" rel="stylesheet"><![endif]--><link href="./css/2.10-landend-base.css" type="text/css" rel="stylesheet"><link href="./css/base.css" type="text/css" rel="stylesheet"><!-- Google Tag Manager -->
+    <style>
+        #JAGAvHQFw4sGzLeD4GQx21AgnXS89Xam iframe{
+            width:440px;
+        }
+        @media (max-width:768px) {
+            #JAGAvHQFw4sGzLeD4GQx21AgnXS89Xam iframe{
+                width:100%;
+            }
+
+        }
+    </style>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'./js/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TX4HST2');</script>
+<!-- End Google Tag Manager --><script>var youtubeVideos = [];</script>
+
+
+</head><body id="TIJfcD0Hp67nly0PI9CZnQXoO6ToBiwt"><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="./js/ns.html?id=GTM-TX4HST2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div style="  overflow-y:hidden;" id="COoc4dAzTMUxS61XJK64dBvAGXtK3SH9" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <img id="vwmSMbQJMXVL5vov2K52i3CmwEmsE5c0"  width="317" height="78"  class="widget widget-image" data-original="./images/jagadamba_logo_png.png" src="./images/jagadamba_logo_png.png" srcset="./images/jagadamba_logo_png.png 1x, ./images/jagadamba_logo_png.png 2x"  alt="" ><div id="v12xXU0GqqBrNwtuawXlQKwTee33tAQd" class="widget widget-text widget-regular-label"><h1><font color="#3776c5"><b>Vastu Shastra is the architectural science to get the best combination of five elements of nature to your home: Space, Air, Water, Heat and Earth. House built in compliance with Vastu brings in better value and all-around prosperity to you. <br><br>At Jagdamba Cement, we are here to guide you with tips and expert support to keep your home in compliance with Vastu #SachetnaAbhiyan</b></font></h1></div><div id="R38Pa0xMtBZRx0px3TV58ccXpZIWd3Q1" class="widget widget-text widget-regular-label"><ul><li><span style="color: rgb(107, 107, 107);">Benefit No. </span><span style="color: rgb(125, 191, 39);">1</span></li><li><span style="color: rgb(54, 193, 222);">Benefit No.</span><font color="#7dbf27"> </font><span style="color: rgb(107, 107, 107);">1</span></li></ul></div>
+            <div style="background-color:transparent;
+            "  id="JAGAvHQFw4sGzLeD4GQx21AgnXS89Xam" class="widget widget-box">
+                <iframe  src="https://docs.google.com/forms/d/e/1FAIpQLSfNt_WIwlz2Ins8klFeF5vomVAQ36NCFg5Lu7if2BU5_H_r2A/viewform?embedded=true"    
+                 height="606" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div><div id="ytpVmdCK8ET1VOp1dt53Tg2btxoiC17x" class="widget widget-text widget-regular-label"></div><div id="snTudGB8k87agJ5nFcExx65brgQtTx7y" class="widget widget-text widget-regular-label"><p></p>
+               <p></p></div>
+               
+                
+
+                <div id="GvUBk5VEXIcT8DsBG893JMTClKdvuAX5" class="widget widget-box"></div><div id="yyO44XCtubaNFdT79XiE9ghbOSoJWqVt" ></div>
+                <script>
+                youtubeVideos.push({
+                    hash: 'yyO44XCtubaNFdT79XiE9ghbOSoJWqVt',
+                    id: 'gkkZFrgTBkk',
+                    autoplay: 0,
+                    rel: 0,
+                    loop: 0,
+                    showinfo: 1,
+                    controls: 1,
+                    mute: 0
+                });
+                </script><img id="GM7abmIHoBpXwFO78qGbTtUinIZMsXu7"  width="173" height="77"  class="widget widget-image" data-original="./images/sachetana_campaign.png" src="./images/sachetana_campaign.png" srcset="./images/sachetana_campaign.png 1x, ./images/sachetana_campaign.png 2x"  alt="" ><div id="tmZdRzHKhgZdxIuRf9rNmmeW7fFJuBTl" class="widget widget-text"><p>
+घर बनाउनु जीवनकाे एउटा ठुलो निर्णय हो! त्यस निर्णयलाई सफल तथा लाभदायी बनाउन हामी निरन्तर तपाईंको साथ छौं!</p><p><br></p><p>At Jagdamba Cement, we are here to guide you with expert advice to keep your home in compliance with Vastu</p></div>
+        </div>
+    </div>
+</div>
+<div id="EcJUNICZ7VernnzHsTTe07QzRC2HSsk1" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <a href="#b7922de2-7c70-11e9-b1f5-eedfbb646032" id="MR4GD9MT0xuD0wUBiPhRwLLA5fl74O5o"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/mq1.jpg"  alt=""  width="300" height="167"  srcset="./images/mq1.jpg 1x, ./images/mq1.jpg 2x">
+</a><a href="#11588200-79b9-11e9-81e7-127055945956" id="zQRCCch3TGSnCFrRgJFisW3VRyTD2EyX"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/mq2.jpg"  alt=""  width="300" height="168"  srcset="./images/mq2.jpg 1x, ./images/mq2.jpg 2x">
+</a><a href="#abcf7d8e-7c70-11e9-845c-1e1a662bc152" id="PnJ9DdgMkKDlTUyg3qV82Kb08venP6vA"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/mq3.jpg"  alt=""  width="300" height="165"  srcset="./images/mq3.jpg 1x, ./images/mq3.jpg 2x">
+</a><div id="rgkScfgAsPym8DfQZnDdCPSA8LcCxKBg" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>भूमि परीक्षण</b></font></p><p></p></div><div id="AaceI36lSUyxxWJQzR4VfKkcMK2Ei9GU" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>सिमेन्टको लम्प : कारण र समाधान</b></font></p><p></p></div><div id="sGw1VgJpxl1uC7myQJ8HpBge2WETX4iQ" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>सिमेन्टको रंगमा आउने परिवर्तन: कारण र समाधान</b></font></p><p></p></div><div id="q2Pmsoeg7vFm83ylBAb6QPxfL1Wbmura" class="widget widget-text"><p>Vastu Videos</p></div>
+        </div>
+    </div>
+</div>
+<div id="MznvTcKJtoEP11KzLou77nbxxV2Ga86i" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <a href="#632596b6-7c4a-11e9-92c9-0a3963943698" id="TqsOwDTWX0yHgN3I6FknBBe5nOviCWEo"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_01.jpg"  alt=""  width="315" height="158"  srcset="./images/Vashtu_Shastra_F_01.jpg 1x, ./images/Vashtu_Shastra_F_01.jpg 2x">
+</a><div id="HLgRNnObTwn9mBdfkhzRrxyrALnsxPwi" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>नाली व्यवस्थापन तथा निकास</b></font></p><p></p></div><a href="#0255a5f4-7c4c-11e9-a35c-6e5e16f49ee1" id="OSMaqlgVO37PTJaNKXUUnDnRyhzn6BXF"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_02.jpg"  alt=""  width="301" height="158"  srcset="./images/Vashtu_Shastra_F_02.jpg 1x, ./images/Vashtu_Shastra_F_02.jpg 2x">
+</a><div id="yEmX2MSbZapFoklTRMgG9ZQsn7a4rs7c" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>सर्वेन्ट रूम (कुरुवा आवासगृह)</b></font></p><p></p></div><a href="#0ceb7420-7c75-11e9-8028-c2e66f8395fa" id="QXQ7pIRCVLHUTlts9O1KK4C41tNiEd1d"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_03.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_03.jpg 1x, ./images/Vashtu_Shastra_F_03.jpg 2x">
+</a><div id="k8b2l6aWNyBV8IZJvXD3Fmlkw2Fa3ksK" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>आँगन</b></font></p><p></p></div><div id="FtIcBsy3ZhaPzoGy6gz0nkwS5Fk6rIKN" class="widget widget-text"><p>Vastu Tips</p></div>
+        </div>
+    </div>
+</div>
+<div id="sX3bXTV11rZxxxss1i0OGoRxDZxRd9CA" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <a href="#407fc2f6-7c79-11e9-95b4-c2e66f8395fa" id="pbbk6l8NXNDSWr4mhW9boV4TLnBqqzkl"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_04.jpg"  alt=""  width="301" height="158"  srcset="./images/Vashtu_Shastra_F_04.jpg 1x, ./images/Vashtu_Shastra_F_04.jpg 2x">
+</a><div id="hgObDrDxrd3pBHAg8NR9zTKG8TaTwdtl" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>बालकोनी र बराण्डा</b></font></p><p></p></div><a href="#7834453c-7c79-11e9-b0fc-c2e66f8395fa" id="XKqZOlHPJnk14tsoF8imfnwTfRQonffJ"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_07.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_07.jpg 1x, ./images/Vashtu_Shastra_F_07.jpg 2x">
+</a><div id="AzvfTdM7SA2OQrT5p8l183A6HpndHzE2" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>ब्रम्हस्थान</b></font></p><p></p></div><a href="#50d8ed08-7c79-11e9-89f9-5e3136302c51" id="ATCeHgCIHLTEmOCNUtTI3dTDTWdF6ffo"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_11.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_11.jpg 1x, ./images/Vashtu_Shastra_F_11.jpg 2x">
+</a><div id="yQRyXiiEH60kFTIrZIwskBhmhlsbUXWm" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>बच्चाको शयनकक्ष</b></font></p><p></p></div>
+        </div>
+    </div>
+</div>
+<div id="Bt9Z0E0a5hkcbKT7cInTXtT01Azlv4LD" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <a href="#6a5ab4b4-7c79-11e9-8a16-266cf882955b" id="fEFvghlyKDtMAhtQlvJtXT9WQI0HXFav"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_15.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_15.jpg 1x, ./images/Vashtu_Shastra_F_15.jpg 2x">
+</a><div id="F82XTCzxdV8TaRC4szFtmCcPFXiyMtq9" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>कारखाना र फ्याक्ट्री</b></font></p><p></p></div><a href="#85dcd082-7c79-11e9-84c2-c2e66f8395fa" id="ozrIXSKZfHgUA9EHZC9vM6kl95R4WnSm"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_06.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_06.jpg 1x, ./images/Vashtu_Shastra_F_06.jpg 2x">
+</a><div id="IoTVNGiLWNVFRqTvMXbWwKOnk87SxX4b" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>पोर्टिको</b></font></p><p></p></div><a href="#8eb5fbd4-7c79-11e9-afd7-266cf882955b" id="sVpFNAwVARpc77SzP8w50uRvZQut6pT4"
+    class="widget widget-image"  subtype="popup"
+>
+    <img src="./images/Vashtu_Shastra_F_05.jpg"  alt=""  width="301" height="157"  srcset="./images/Vashtu_Shastra_F_06.jpg 1x,./images/Vashtu_Shastra_F_06.jpg 2x">
+</a><div id="ZIbsXdDd0Bh79qJ1390yybMaOIgGWVJZ" class="widget widget-text widget-regular-label"><p></p><p><font color="#333333"><b>ग्यारेज</b></font></p><p></p></div>
+        </div>
+    </div>
+</div>
+<div id="WoX982TzDU8FlBSNuugAMEOdQ9Sf4cim" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <div id="q1dOlwC5BDxrvBl29rTGf68uNkFh7dfL" class="widget widget-text"><p>जगदम्बा सिमेन्ट तपाईंको घर निर्माण कार्यमा निरन्तर सहयोगका लागि तपाईंको साथ छ!  <br>Fill your details for expert advice &amp; Vastu tips from Jagdamba.</p></div>
+        </div>
+    </div>
+</div>
+<div id="tRqy6C4h3ZvlREJTogdeDsPUlIV7zV8T" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <img id="D4aXIJBFb3muPQRKP5piIGy1ngHnzAs7"  width="173" height="77"  class="widget widget-image" data-original="./images/sachetana_campaign.png" src="./images/sachetana_campaign.png" srcset="./images/sachetana_campaign.png 1x, ./images/sachetana_campaign.png 2x"  alt="" ><div id="O3HkutRWmJ4dUD1x8OKHLMRuRFMzgeIW" class="widget widget-text widget-regular-label"><p><font color="#333333"><b><b style="text-decoration: none;">Connect on Facebook</b></b></font></p></div><a href="tel:+9779801110345" id="qfosODwt7JXbmSe3SIWTykT84vgoIHk5" class="widget widget-button"  version="3"><div class="widget-overlay"></div><div id="XKHcNoU3Tvlc00EBgzrWMHTHsqd4HO64" class="widget widget-text">Call Toll Free</div></a><i id="WwWOMlR6IIfES2TKHiOaPs1L5MKOgMt5" class="fa fa-phone widget widget-icon"></i><a href="https://www.facebook.com/jagdamba.cement/" 
+    id="h2lLrOdhbZBfsBS0d2lpTIJCt1bibD3R" 
+    class="widget widget-icon"  
+    
+    target="_blank"
+>
+    <i class="fa fa-facebook-official"></i>
+</a>
+        </div>
+    </div>
+</div><div id="11588200-79b9-11e9-81e7-127055945956" class="landingi-popup"><div id="gLHK9v4n9VWt4Rbdn2Q08ZMd4cMggbuB" class="landingi-popup-body">
+<div id="c2hUa1SNGRubKgxw1nJvPDMwUOHL7NaX" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="kiHw9D5Z6pMpnklucIQZV7NyFsvwECOH" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="BfLr6TLZZv1lXH9gtLc6XQ8qIs7qeTum" ></div>
+                <script>
+                youtubeVideos.push({
+                    hash: 'BfLr6TLZZv1lXH9gtLc6XQ8qIs7qeTum',
+                    id: 'P5z1ZvnwkGA',
+                    autoplay: 1,
+                    rel: 0,
+                    loop: 0,
+                    showinfo: 1,
+                    controls: 0,
+                    mute: 0
+                });
+                </script>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_11_06_45.css"><div id="8eb5fbd4-7c79-11e9-afd7-266cf882955b" class="landingi-popup"><div id="pe960786634d5aea6825306c5bc91dcbec00a1a5" class="landingi-popup-body">
+<div id="sf709d62c045cef1a09505057f120e755197cc45" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="D84393e213b002f1de51e2507de285a64e9ffc91" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="g68a287942565d2c364d505c4279bfbf3958a21f" class="widget widget-text"><ul><li>
+                    सामान्यतया ग्यारेजका लागि घरको आग्नेय या वायव्यतर्फ राम्रो हुन्छ</li>
+                    <li>घरको मूलद्वार पूर्व भएमा आग्नेयमा ग्यारेज राम्रो</li><li>घरको मूलद्वार उत्तर भएमा बायव्यमा ग्यारेज राम्रो</li><li>घरको मूलद्वार पश्चिम भएमा नैऋत्यमा ग्यारेज राम्रो</li><li>घरको मूलद्वार दक्षिण भएमा पनि नैऋत्यमा नै ग्यारेज बनाउनु राम्रो हुन्छ</li><li>ग्यारेजको मुख घरबाहिर या बाटोतर्फ हुनु राम्रो मानिन्छ </li><li>घरकुरुवाको आवास ग्यारेजसङ्गै हुनु राम्रो हुन्छ</li><li>धेरै भद्दा किसिमको ग्यारेज राम्रो मानिन्न</li><li>ग्यारेजमा मोटर पूर्व पश्चिम गरेर मात्र पार्किङ गर्नु राम्रो हुन्छ उत्तर </li><li> दक्षिण पार्किङ राम्रो मानिन्न</li><li>ग्यारेजको छत ज्यादा भारयुक्त बनाउनु हुदैन</li><li>ईशानमा कुनै हालतमा पनि ग्यारेज बनाउनु हुँदैन</li></ul></div><div id="fa465bc3c919ffa6356ccff761e0bf69d2b1dfe4" class="widget widget-text"><h2>ग्यारेज</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_21_45.css"><div id="7834453c-7c79-11e9-b0fc-c2e66f8395fa" class="landingi-popup"><div id="mbfefa4a10dbf3d95118b029f9f15656112051ff" class="landingi-popup-body">
+<div id="l807b002d9e611ae59d94155beb0151a09740659" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="N6d66ad122f5257a33ddea7d2b5b481033bfe055" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="eae022a297598a5b9eef2770b2d0444f1182dd49" class="widget widget-text"><ul><li>
+                    बास्तुको मूलमर्म भनेको नै ब्रह्मस्थान भएकाले यसलाई कहिँकतैबाट बाधा नहुने गरि भवन निर्माण गर्नु पर्दछ</li>
+                    <li>ब्रह्मस्थान खुल्ला हुउनु पर्दछ</li>
+                    <li>सम्भाब्य अबस्थामा ब्रह्मस्थानमा छत, स्तम्भ आदि हुनुहुँदैन त्यसैले प्राचीन बास्तुका नमुनाहरुमा चोक आगन्को ब्यवस्था गरिएको हो</li>
+                    <li>चोक आगनको सम्भावना नहुदा पनि बीचको भाग खाली छोड्नु नै राम्रो हुन्छ भने व्यापारीक भवनमा भूमिदेखी छत्सम्म नै बीचको भाग खुल्ला राखेर नै बनाउनु राम्रो हुन्छ जुन हालका सपिङ कम्प्लेक्स हरुले प्रयोग गरेका छन्</li></ul></div><div id="e5326f0d996a8da7e612f5d3b8859ddbee148237" class="widget widget-text">
+                        <h2>ब्रम्हस्थान</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_12_59.css"><div id="abcf7d8e-7c70-11e9-845c-1e1a662bc152" class="landingi-popup"><div id="Defd86bf5a470459ef52c6579fbe1d12aa40e609" class="landingi-popup-body">
+<div id="efdf9d024c5e61879e6a247d210ef0e573cb3631" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="F03a8b37f3c9dc4766be8fc03fc2dd74a3d961e6" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="e026ed15ae9d6c608e07011647557ac87720fd5f" ></div>
+                <script>
+                youtubeVideos.push({
+                    hash: 'e026ed15ae9d6c608e07011647557ac87720fd5f',
+                    id: 'T-ysoQCFjrQ',
+                    autoplay: 1,
+                    rel: 0,
+                    loop: 0,
+                    showinfo: 1,
+                    controls: 0,
+                    mute: 0
+                });
+                </script>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_11_06_59.css"><div id="b7922de2-7c70-11e9-b1f5-eedfbb646032" class="landingi-popup"><div id="dca8ae8a806ee866d6e07cca3d2f766e77485bcf" class="landingi-popup-body">
+<div id="C155b9dcfb963fd29ba88ef4f92907e738077278" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="ee81f5c85e51631e60b7c02ddc6cf6900035ad81" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="I550880a6ef60cf3599066cebebf26e48ad58b49" ></div>
+                <script>
+                youtubeVideos.push({
+                    hash: 'I550880a6ef60cf3599066cebebf26e48ad58b49',
+                    id: 'A2xutPpdtc4',
+                    autoplay: 1,
+                    rel: 0,
+                    loop: 0,
+                    showinfo: 1,
+                    controls: 0,
+                    mute: 0
+                });
+                </script>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_11_07_56.css"><div id="0ceb7420-7c75-11e9-8028-c2e66f8395fa" class="landingi-popup"><div id="N22977f57315289c5eb2b9851cd41b567b9a9394" class="landingi-popup-body">
+<div id="cb5407a51070464773467eb2988b2e58c1feb4d4" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="Cdb483edf82850eacf6d1c238c306db5ddd3c4c3" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="z9985bc842a60ccdcfad6af0fd901ab597278eb1" class="widget widget-text">
+                <ul><li>घरको आँगन सधैं सफा सुन्दर हुनुपर्दछ</li>
+                    <li>आँगनमा ईनार कुवा बनाउनु हुँदैन</li>
+                    <li>घरको बीचमा आँगन बनाउनु राम्रो हुन्छ</li>
+                    <li>घरको बीचमा आँगनको सम्भावना नभए उत्तरपूर्वतर्फ आँगन हुनेगरी घर बनाउनु पर्दछ</li>
+                    <li>आँगन माझमा अग्लो र चौतर्फी स्लोप हुनुपर्छ</li>
+                    <li>आँगनमा कुनै कारणवश पानी जम्ने या फोहोर जम्मा हुनुहुँदैन</li>
+                    <li>माझमा होचो आगनले सम्पत्तिको नाश गराउने हुन्छ</li>
+                </ul></div><div id="c498fdc001b993a5eecda761b815674a1eee8202" class="widget widget-text">
+                    <h2>आँगन</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_17_06.css"><div id="632596b6-7c4a-11e9-92c9-0a3963943698" class="landingi-popup"><div id="H4A0PKA1CrQc7tJVtbgDIQbHMNDn86Im" class="landingi-popup-body">
+<div id="GGvsXZ6JsaS4Wy6icOqCrmc1t0dgQI8L" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="FTJ9uk4OEuK3bHTJG3adC6DdG0oyaGFO" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="DLkiyEqWhJ9L4ObU9yE3dqJpb9SMk7LV" class="widget widget-text"><ul>
+                <li>घर कार्यालय बनाउनु पूर्व नै नाली निकसको कार्ययोजना बनाउनु पर्दछ<br></li>
+                <li>स्वास्थ्य वातावरण र सौन्दर्यका लागि पनि यसको उचित ब्यवस्थापन गर्नु जरुरी हुन्छ</li>
+                <li>जल निकास या प्रवाह ईशानमा द हुने गर्नु राम्रो</li>
+                <li>अन्य स्थानको बिकल्पमा ईशानपूर्व भूभाग र वायब्य पनि लिन सकिन्छ</li>
+                <li>विभिन्न दिशामा बनेको निकासले भूस्वामीलाई विभिन्न असर गर्ने भएकाले विचार र्पुयाउनु राम्रो हुन्छ</li>
+                <li>पूर्वमा निकास भएमा शुभफल, धन सम्पत्ति दायक</li><li>दक्षिणमा धननाश,दारिद्र्य, रोगको भय</li>
+                <li>नैऋत्यमा हानी, कष्ट</li>
+                <li>पश्चिममा सन्तान र सुखहानी</li>
+                <li>वायव्यमा सुखसम्पत्ती</li>
+                <li>उत्तरमा सम्मान</li><li>ईशानमा धन सम्पत्ति प्राप्ति हुन्छ</li>
+            </ul></div><div id="XiUrF08Gnat0ybUNoodUzhCoAlKVFsEw" class="widget widget-text">
+                <h2>नाली व्यवस्थापन तथा निकास</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_13_22_46.css"><div id="407fc2f6-7c79-11e9-95b4-c2e66f8395fa" class="landingi-popup"><div id="Rc4b04bac77217498a19c696a2b118ed0780005c" class="landingi-popup-body">
+<div id="dbbb4f17fd33ba0f1b0c295ef5979c8668bc11bb" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="a88838fde9da49e12c71256dfbdd350332607e64" class="fa fa-times-circle-o widget widget-popupcloser"></i>
+            <div id="U6a1febe388a90c189a69d96f3150d45ddd1532b" class="widget widget-text">
+                <ul><li>
+                    बाल्कोनी घरको सौन्दर्यवर्धक हुन्छ</li>
+                    <li>सौर्यप्रकाश र स्वच्छहावाको लागि नि बाल्कोनीको आवश्यकता पर्दछ</li>
+                    <li>समुचित स्वास्थ्य ब्यवस्थापनका लागि पनि बाल्कोनिको आबश्यकता पर्दछ</li>
+                    <li>बाल्कोनी पूर्व या उत्तर भागमा नै बनाउनु पर्छ</li>
+                    <li>बराण्डा ईशानमा राम्रो हुन्छ र त्यसका खम्बाहरु गोलहुनु राम्रो मानिन्छ</li>
+                </ul></div>
+                <div id="gf77151665a4c3859c25dc1a7ae676c5d10635a1" class="widget widget-text">
+                    <h2>बालकोनीर बराण्डा</h2>
+                </div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_16_49.css">
+<div id="6a5ab4b4-7c79-11e9-8a16-266cf882955b" class="landingi-popup"><div id="u2ff60951d380aebefeaa2244349bf07b11c950e" class="landingi-popup-body">
+<div id="H260269350b8b38b02dfa847e344c73d3dd6db0e" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            <i id="R58a93d1731db15e197ec3b9624df26904f88d9a" class="fa fa-times-circle-o widget widget-popupcloser"></i>
+            <div id="dcb2ead82ed3c61f64037c74d846ed5cc1dca1be" class="widget widget-text">
+            <ul><li>कारखानाको लागि आयाताकारर बर्गाकार भूखण्ड उत्तम हुन्छ</li>
+                <li>कारखानाको छत र भूमिको झुकाउ ईशानतर्फ हुनु राम्रो हुन्छ</li>
+                <li>बीचको भाग सफा सुन्दरका साथमा खाडल र पिल्डर रहित हुनु राम्रो हुन्छ</li>
+                <li>मुख्यढोका ठूलो र राम्रो हुनपर्छ भने उत्तर पूर्वमा हुनु राम्रो मानिन्छ</li>
+                <li>तीनतर्फ सडक राम्रो हुन्न</li>
+                <li>कन्फ्रेन्स हल, रिचर्स सेन्टर पूर्वमा</li>
+                <li>चिम्नी भट्टी र उष्णतापीय क्षेत्र आग्नेयमा</li><li>रासायनिक क्षेत्र र प्याकिङ क्षेत्र दक्षिणमा</li>
+                <li>ठूला गोदाम र भारयुक्त सामग्रीहरुको ब्यवस्थापन नैऋत्य</li>
+                <li>हल्का सामग्री र मेशिनरी सामान पश्चिम</li><li>खुल्ला क्षेत्र , तौलकाँटा डिस्पैच उत्तर</li>
+                <li>जलाशय, कुवा पोखरी र मन्दिर ईशान</li>
+            </ul>
+        
+        </div>
+        <div id="f3e626b38e37f7e9e7e1419ea9d5d2a68be7ff51" class="widget widget-text">
+            <h2>कारखाना र फ्याक्ट्री</h2></div>
+        </div>
+    </div>
+</div></div></div>
+            
+
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_14_32.css"><div id="85dcd082-7c79-11e9-84c2-c2e66f8395fa" class="landingi-popup"><div id="M5d43ff77ae596480605a06a27f7bf7f15dbaf5e" class="landingi-popup-body">
+<div id="N6d82b1148a936e4625eb20cf33e439a67b089a0" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="e466395ca4f7190bfb416cfdd82603ac31eb8203" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="Qb207ec9a6f30c13f20215dac1fc86d01590d6d3" class="widget widget-text">
+                <ul>
+                    <li>घर र मूलद्वारको अगाडीको खाली भूभागले पोर्टिको के कस्तो बनाउने भन्नेमा भर पर्छ</li>
+                    <li>आजकाल स्थानाभावले नै पोर्टिकोमा नै पार्किङ बनेको हुन्छ</li>
+                    <li>दक्षिण भूखन्ड हुनेले आग्नेया भागमा पोर्टिको बनाउनु उत्तम हुन्छ</li>
+                    <li>पश्चिम भूखण्ड हुनेले वायब्यमा पोर्टिको बनाउनु राम्रो हुन्छ</li>
+                    <li>उत्तरी भूखण्ड हुनेले ईशानमा पोर्टिको बनाउनु राम्रो हुन्छ</li>
+                    <li>उत्तरी भूखण्ड हुनेले ईशानमा पोर्टिको बनाउनु राम्रो हुन्छ</li>
+                    <li>पोर्टिकोको उचाई घरको भन्दा कम हुनुपर्छ</li>
+                    <li>पोर्टिकोमा राखिने स्तम्भहरु गोल आकृतिका नै बनाउनु राम्रो हुन्छ</li>
+                </ul>
+            </div>
+            <div id="a673a45831d1dee17ecac96ebbac9403d247bb51" class="widget widget-text">
+                <h2>पोर्टिको</h2>
+            </div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_11_43.css"><div id="50d8ed08-7c79-11e9-89f9-5e3136302c51" class="landingi-popup"><div id="A35138cd3c736e76b6899d142dd9134e5b725f5d" class="landingi-popup-body">
+<div id="T9ec58c10aac502bd29d25939392c64d23cf36a3" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="g5a3e4fe7b80b98f1e1b006311aa8526bf2dd398" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="af000e1d570f854d9e3ed41677878c257b1f32d0" class="widget widget-text">
+                <ul>
+                    <li>
+                    बच्चाको शयनकक्ष वायव्यमा हुनु राम्रो मानिन्छ र बैकल्पिक रूपमा पश्चिम दिशाको प्रयोग नि गर्न सकिन्छ</li><li>शयनकक्षको द्वार ईशान या पूर्वतर्फ खुल्ने गरि हुनुपर्दछ</li><li>समान्यतया दुईवटा झ्यालको ब्यवस्था हुनु पर्दछ र झ्याल उत्तर पूर्वी भागमा हुनु पर्दछ</li><li>कोठाको भित्तामा हरियो,पहेलो,गुलावी रंगको प्रयोग गरिनु राम्रो हुन्छ
+                           </li><li> कोठाको दक्षिण पश्चिम भागमा पलङ राख्नु पर्दछ</li><li>कम्प्युटर आग्नेय भागमा र कुलर तथा ब्।ऋ। वायब्यमा लगाउनु राम्रो हुन्छ
+                            </li><li>स्टडी टेवल पूर्वतर्फ राख्ने र पूर्व फर्केर नै अध्ययन गर्नु राम्रो हुन्छ</li><li>आलमारी दक्षिण पश्चिममा हुनु राम्रो मानिन्छ भने पुस्तक आल्मारी उत्तरतर्फ पनि राख्न सकिन्छ</li><li>कोठाको ईशान भागमा पानी भरिएको बोतल या कुनै भाडा राख्नु राम्रो हुन्छ</li><li>हल्का रंगको सुती या रेशमी पर्दा लगाउनु राम्रो हुन्छ</li><li>शिक्षाप्रद तथा प्रकृतिचित्रणका सुन्दर तस्वीर पनि बच्चाको शयनकक्षमा राख्न सकिन्छ</li></ul></div><div id="a18614ba1049bda6ba93f1e0681ee2461a044a2d" class="widget widget-text"><h2>बच्चाको शयनकक्ष</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_12_15_58.css"><div id="0255a5f4-7c4c-11e9-a35c-6e5e16f49ee1" class="landingi-popup"><div id="a1cdbca67e6c31801636a360dbd378428c73cd23" class="landingi-popup-body">
+<div id="c50c23565e0e35822aa5afa3c44962dcd1c67ccd" class="widget widget-section">
+    <div class="row">
+        
+        <div class="container">
+            
+            <i id="rafec4f880309d9b8b560c9c2984c89e688579de" class="fa fa-times-circle-o widget widget-popupcloser"></i><div id="Naeca034a04357b4a34bc62ea52ea8f33feebf37" class="widget widget-text"><ul>
+                   <li> कुरुवा आवास ठूल्ठूला भवनहरुमा आवश्यक हुन्छ</li>
+                        <li>कुरुवाको लागि आवास बनाउदा ईशानलाई छाडेर अन्यत्र बनाउन सकिन्छ</li>
+                                <li>बिशेषगरि यो कामको लागि सबै भन्दा उत्तम स्थान नैऋत्य हो</li>
+                                        <li>ग्यारेज साथमा नै हो भने ग्यारेज माथी नि बनाउन सकिन्छ या ग्यारेजको साथमा नै बनाउनु उत्तम हुन्छ</li>
+                                                <li>नैऋत्य बाहेक अन्या भागमा बनाउदा भित्तादेखी घात को दुरी कायम गरेर मात्र बनाउनु पर्दछ</li></ul></div><div id="d721a14b776313b2604c19666c0500b2b3a20922" class="widget widget-text"><h2>सर्वेन्ट रूम (कुरुवा आवासगृह)</h2></div>
+        </div>
+    </div>
+</div></div></div>
+<link rel="stylesheet" href="./css/popup_2019_05_22_13_24_02.css"><script type="text/javascript" src="./js/jquery.min.js"></script><script type="text/javascript" src="./js/landend.bootstrap.min.js"></script><script type="text/javascript" src="./js/bootbox.min.js"></script><script type="text/javascript" src="./js/landing.js"></script>
+<script type="./js/landend.js"></script>
+<script type='text/javascript' src='./js/jquery.form.min.js'></script>
+<script type="text/javascript" src="./js/landend.js"></script>
+<script type="text/javascript" src="./js/validation.js"></script><script>$(function(){$("body").append('<img src="https://analytics.landingi.com/track/566451" alt="" style="display:none;">');});</script><script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    var youtubePlayers = [];
+    
+    function onYouTubeIframeAPIReady() {
+        youtubeVideos.forEach(function (video) {
+            var options = {
+                playerVars: {
+                    rel: video.rel,
+                    loop: video.loop,
+                    showinfo: video.showinfo,
+                    controls: video.controls,
+                    mute: video.mute
+                },
+                events: { 
+                    'onReady': function (event) {
+                        var element = $('#' + video.hash);
+                        
+                        if (video.autoplay) {
+                            if (element.closest('.video-iframe-container').length || !element.closest('.landingi-popup').length) {
+                                event.target.playVideo();    
+                            }
+                        }
+                    }, 
+                    'onStateChange' : function (event) {
+                        if (event.target.getPlayerState() === 0 && video.loop !== 0) {
+                            event.target.playVideo();
+                        }
+                    }
+                }
+            };
+            
+            if (video.id) {
+                options.videoId = video.id;
+            }
+            
+            youtubePlayers[video.hash] = new YT.Player(video.hash, options);
+        });
+    }
+</script><script src="./js/videoBackground.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.eu01.nr-data.net","licenseKey":"84da83e7c2","applicationID":"9476739","transactionName":"MhBSZQoZC0ACVUAICgtacVIMEQpdTF9aBQAdWllfHB0d","queueTime":0,"applicationTime":4002,"atts":"HldRE0IDGE4=","errorBeacon":"bam.eu01.nr-data.net","agent":""}</script></body></html>
